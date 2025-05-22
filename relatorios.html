@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Relatórios</title>
+  <link rel="stylesheet" href="styles/relatorios.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar"></div>
+    <div class="main">
+      <div class="header"></div>
+      <h1 class="title">Relatórios</h1>
+      
+      <div class="filtros">
+        <label for="data">Data:</label>
+        <input type="date" id="data" name="data" />
+
+        <label for="tipo">Tipo:</label>
+        <select id="tipo" name="tipo">
+          <option value="todos">Todos</option>
+          <option value="mensal">Mensal</option>
+          <option value="anual">Anual</option>
+        </select>
+
+        <button class="botao">Filtrar</button>
+      </div>
+
+      <div class="tabela-container">
+        <table class="tabela">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Título</th>
+              <th>Tipo</th>
+              <th>Download</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2025-01-15</td>
+              <td>Relatório Mensal Janeiro</td>
+              <td>Mensal</td>
+              <td><a href="#">📄</a></td>
+            </tr>
+            <tr>
+              <td>2025-04-01</td>
+              <td>Relatório Anual 2024</td>
+              <td>Anual</td>
+              <td><a href="#">📄</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

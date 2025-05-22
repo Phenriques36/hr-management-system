@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f7ef;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 180px;
+  background-color: #6c7a89;
+  border-radius: 8px 0 0 8px;
+}
+
+.main {
+  flex: 1;
+  padding: 20px 30px;
+}
+
+.header {
+  background-color: #c8c7c7;
+  height: 30px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.filtros {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filtros input,
+.filtros select {
+  padding: 5px;
+  font-size: 14px;
+}
+
+.botao {
+  background-color: #6c7a89;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.botao:hover {
+  background-color: #5a6a78;
+}
+
+.tabela-container {
+  overflow-x: auto;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.tabela th,
+.tabela td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.tabela th {
+  background-color: #e0e0e0;
+}
