@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  height: 100vh;
+  background-color: #eae9e3;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 160px;
+  background-color: #6d7d8b;
+  border-radius: 0 10px 10px 0;
+}
+
+/* Conteúdo principal */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #eae9e3;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content h1 {
+  margin-bottom: 20px;
+  color: #2c2c2c;
+  font-size: 24px;
+}
+
+/* Tabela de funcionários */
+.tabela-funcionarios {
+  background-color: #a0a6aa;
+  padding: 20px;
+  border-radius: 10px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #5d6e7a;
+  color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+th {
+  background-color: #3f4f5c;
+  color: #fff;
+}
+
+tr:hover {
+  background-color: #6d7d8b;
+}
