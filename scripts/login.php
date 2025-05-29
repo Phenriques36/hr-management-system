@@ -13,7 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
   
-    $db = new SQLite3('dados.db'); 
+    $db = new SQLite3('../database/dados.db'); 
+    date_default_timezone_set('Europe/Lisbon');
 
 
     $stmt = $db->prepare('SELECT id, email, password, tipo FROM utilizadores WHERE email = :email');
@@ -30,8 +31,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user_email'] = $user['email'];
             $_SESSION['user_tipo'] = $user['tipo'];
 
+            $agora = date('Y-m-d H:i:s');
+            $stmtUpdate = $db->prepare('UPDATE utilizadores SET ultimo_acesso = :ultimo_acesso WHERE id = :id');
+            $stmtUpdate->bindValue(':ultimo_acesso', $agora, SQLITE3_TEXT);
+            $stmtUpdate->bindValue(':id', $user['id'], SQLITE3_INTEGER);
+            $stmtUpdate->execute();
+
             
-            header('Location: dashboard.php');
+            header('Location: ../dashboard.html');
             exit;
         } else {
             echo "Password incorreta.";
