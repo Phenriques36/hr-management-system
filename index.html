@@ -11,14 +11,15 @@
   <div class="diamond"></div>
   <div class="circle"></div>
 
-  <div class="login-box">
-    <h1>BEM VINDO</h1>
-    <input type="text" placeholder="E-mail">
-    <div class="password-container">
-      <input type="password" placeholder="Palavra-passe">
-      <div class="eye"></div>
-    </div>
-    <button>Login</button>
+  <form method="POST" action="login.php" class="login-box">
+  <h1>BEM VINDO</h1>
+  <input type="text" name="email" placeholder="E-mail" required>
+  <div class="password-container">
+    <input type="password" name="password" placeholder="Palavra-passe" required>
+    <div class="eye"></div>
   </div>
+  <button type="submit">Login</button>
+</form>
+
 </body>
 </html>
