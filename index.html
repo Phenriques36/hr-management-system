@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Login</title>
-  <link rel="stylesheet" href="styles/index.css">
+  <link rel="stylesheet" href="styles/index.css" />
 </head>
 <body>
   <div class="line1"></div>
@@ -11,15 +11,16 @@
   <div class="diamond"></div>
   <div class="circle"></div>
 
-  <form method="POST" action="scripts/login.php" class="login-box">
-  <h1>BEM VINDO</h1>
-  <input type="text" name="email" placeholder="E-mail" required>
-  <div class="password-container">
-    <input type="password" name="password" placeholder="Palavra-passe" required>
-    <div class="eye"></div>
-  </div>
-  <button type="submit">Login</button>
-</form>
+  <form method="POST" action="scripts/login.php" class="login-box" id="loginForm">
+    <h1>BEM VINDO</h1>
+    <input type="text" name="email" placeholder="E-mail" />
+    <div class="password-container">
+      <input type="password" name="password" placeholder="Palavra-passe" />
+      <div class="eye"></div>
+    </div>
+    <button type="submit">Login</button>
+  </form>
 
+  <script src="scripts/valida_login.js"></script>
 </body>
 </html>
