@@ -10,12 +10,12 @@ body {
   gap: 0;
 }
 
-/* Sidebar */
+/* Sidebar - updated to match new style */
 .sidebar {
   background: #546a7b;
   color: #fdfaed;
   width: 270px;
-  border-radius: 10px 10px 10px 10px;
+  border-radius: 14px 0 0 14px;
   padding: 24px 16px;
   min-height: 100vh;
   box-sizing: border-box;
@@ -33,6 +33,7 @@ body {
   list-style: none;
   padding: 0;
   width: 100%;
+  margin: 0;
 }
 
 .sidebar li {
@@ -81,7 +82,7 @@ body {
   margin-bottom: 24px;
 }
 
-/* Calendar PLaceholder Grid */
+/* Calendar Placeholder Grid */
 .calendar-placeholder {
   width: 100%;
   max-width: 900px;
@@ -94,7 +95,7 @@ body {
   box-shadow: none;
 }
 
-/* New grid for calendar days */
+/* Calendar days grid */
 .ferias-calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 108px);
