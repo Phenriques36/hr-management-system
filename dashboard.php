@@ -22,7 +22,7 @@ $nome = htmlspecialchars($_SESSION['user_nome']);
     <nav class="sidebar">
       <h2>Menu</h2>
       <ul>
-        <li><a href="dashboard.html" class="active">Dashboard</a></li>
+        <li><a href="#" class="active">Dashboard</a></li>
         <li><a href="ferias.html">Pedido de férias</a></li>
         <li><a href="funcionarios.php">Gestão de funcionários</a></li>
         <li><a href="permissoes.html">Gestão de permissões</a></li>

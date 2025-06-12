@@ -36,7 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmtUpdate->bindValue(':id', $user['id'], SQLITE3_INTEGER);
             $stmtUpdate->execute();
 
-            header('Location: ../dashboard.php');
+            
+            header('Location: ../dashboard.html');
             exit;
         } else {
             echo "Password incorreta.";

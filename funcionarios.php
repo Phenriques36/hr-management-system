@@ -14,7 +14,7 @@
     <div class="sidebar">
       <h3>Menus</h3>
       <ul class="menu">
-        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="dashboard.php">Dashboard</a></li>
         <li><a href="ferias.html">Pedido de férias</a></li>
         <li><a href="funcionarios.php" class="active">Gestão de funcionários</a></li>
         <li><a href="permissoes.html">Gestão de permissões</a></li>
