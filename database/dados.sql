@@ -44,3 +44,4 @@ CREATE TABLE IF NOT EXISTS relatorios (
   conteudo TEXT
 );
 
+ALTER TABLE utilizadores ADD COLUMN nome TEXT;

@@ -1,5 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt">
+  <?php
+session_start();
+
+if (!isset($_SESSION['user_nome'])) {
+    header('Location: index.html');
+    exit;
+}
+
+$nome = htmlspecialchars($_SESSION['user_nome']);
+?>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,7 +34,7 @@
     <main class="main-content">
       <!-- Header (matches top bar in image) -->
       <header class="header-bar">
-        <span>Bem-vindo, [Nome do Usuário]</span>
+        <span>Bem-vindo, <?= $nome ?></span>
       </header>
 
       <div class="dashboard-widgets">
