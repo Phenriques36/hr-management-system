@@ -30,9 +30,12 @@
       <div class="dashboard-widgets">
         <!-- Left: Main KPIs/statistics -->
         <section class="kpi-card destaque">
-          <h3>Funcionários Ativos</h3>
-          <div class="kpi-value" id="kpi-funcionarios"></div>
-        </section>
+        <h3>Funcionários Ativos</h3>
+        <div class="kpi-value">
+          <?php include 'scripts/funcionariosAtivos.php'; ?>
+        </div>
+</section>
+
         <section class="kpi-card">
           <h3>Pedidos de Férias Pendentes</h3>
           <div class="kpi-value">7</div>
@@ -59,6 +62,5 @@
       </section>
     </main>
   </div>
-  <script src="scripts/dashboard.js"></script>
 </body>
 </html>
