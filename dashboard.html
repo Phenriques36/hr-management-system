@@ -19,24 +19,24 @@
         <li><a href="relatorios.html">Relatórios</a></li>
       </ul>
     </nav>
+
     <!-- Main Content -->
     <main class="main-content">
-      <!-- Header (top bar) -->
+      <!-- Header (matches top bar in image) -->
       <header class="header-bar">
         <span>Bem-vindo, [Nome do Usuário]</span>
       </header>
+
       <div class="dashboard-widgets">
-        <!-- KPI: Funcionários Ativos -->
+        <!-- Left: Main KPIs/statistics -->
         <section class="kpi-card destaque">
           <h3>Funcionários Ativos</h3>
           <div class="kpi-value">120</div>
         </section>
-        <!-- KPI: Pedidos de Férias Pendentes -->
         <section class="kpi-card">
           <h3>Pedidos de Férias Pendentes</h3>
           <div class="kpi-value">7</div>
         </section>
-        <!-- Últimos Pedidos de Férias -->
         <section class="kpi-card wide">
           <h3>Últimos Pedidos de Férias</h3>
           <ul class="recent-list">
@@ -46,7 +46,8 @@
           </ul>
         </section>
       </div>
-      <!-- Resumo Mensal (big panel) -->
+
+      <!-- Large block for chart or report -->
       <section class="dashboard-report">
         <h3>Resumo Mensal</h3>
         <p>
@@ -54,36 +55,9 @@
           <strong>Saídas:</strong> 1<br>
           <strong>Total de pedidos de férias:</strong> 14
         </p>
-        <!-- Chart or visual summary could go here -->
+        <!-- You can insert a chart or visual summary here -->
       </section>
     </main>
   </div>
-
-  <script>
-    // Add active class to clicked menu items
-    document.querySelectorAll('.menu a').forEach(link => {
-      link.addEventListener('click', function() {
-        document.querySelectorAll('.menu a').forEach(item => {
-          item.classList.remove('active');
-        });
-        this.classList.add('active');
-      });
-    });
-    
-    // Update dashboard title with current date
-    document.addEventListener('DOMContentLoaded', function() {
-      const months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 
-                     'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
-      const days = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
-      
-      const now = new Date();
-      const dateString = `${days[now.getDay()]}, ${now.getDate()} de ${months[now.getMonth()]} de ${now.getFullYear()}`;
-      
-      const header = document.querySelector('.header h1');
-      if(header) {
-        header.textContent = `Dashboard Administrativo - ${dateString}`;
-      }
-    });
-  </script>
 </body>
 </html>

@@ -12,11 +12,11 @@
     <div class="sidebar">
       <h3>Menus</h3>
       <ul class="menu">
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Pedido de férias</a></li>
-        <li><a href="#" class="active">Gestão de funcionários</a></li>
-        <li><a href="#">Gestão de permissões</a></li>
-        <li><a href="#">Relatórios</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="ferias.html">Pedido de férias</a></li>
+        <li><a href="funcionarios.php" class="active">Gestão de funcionários</a></li>
+        <li><a href="permissoes.html">Gestão de permissões</a></li>
+        <li><a href="relatorios.html">Relatórios</a></li>
       </ul>
 
       <!-- Botão para mostrar/ocultar a descrição do projeto -->
