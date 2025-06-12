@@ -4,99 +4,59 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gestão de RH - Dashboard</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles/dashboard.css" />
 </head>
 <body>
-  <div class="dashboard-container">
+  <div class="dashboard-layout">
     <!-- Sidebar -->
-    <div class="sidebar">
-      <h3>Menus</h3>
-      <ul class="menu">
-        <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
-        <li><a href="#"><i class="fas fa-umbrella-beach"></i> Pedido de férias</a></li>
-        <li><a href="funcionarios.php"><i class="fas fa-users"></i> Gestão de funcionários</a></li>
-        <li><a href="#"><i class="fas fa-key"></i> Gestão de permissões</a></li>
-        <li><a href="#"><i class="fas fa-chart-bar"></i> Relatórios</a></li>
+    <nav class="sidebar">
+      <h2>Menu</h2>
+      <ul>
+        <li><a href="dashboard.html" class="active">Dashboard</a></li>
+        <li><a href="ferias.html">Pedido de férias</a></li>
+        <li><a href="funcionarios.php">Gestão de funcionários</a></li>
+        <li><a href="permissoes.html">Gestão de permissões</a></li>
+        <li><a href="relatorios.html">Relatórios</a></li>
       </ul>
-    </div>
-    
+    </nav>
     <!-- Main Content -->
-    <div class="main-content">
-      <div class="header">
-        <h1>Dashboard Administrativo</h1>
+    <main class="main-content">
+      <!-- Header (top bar) -->
+      <header class="header-bar">
+        <span>Bem-vindo, [Nome do Usuário]</span>
+      </header>
+      <div class="dashboard-widgets">
+        <!-- KPI: Funcionários Ativos -->
+        <section class="kpi-card destaque">
+          <h3>Funcionários Ativos</h3>
+          <div class="kpi-value">120</div>
+        </section>
+        <!-- KPI: Pedidos de Férias Pendentes -->
+        <section class="kpi-card">
+          <h3>Pedidos de Férias Pendentes</h3>
+          <div class="kpi-value">7</div>
+        </section>
+        <!-- Últimos Pedidos de Férias -->
+        <section class="kpi-card wide">
+          <h3>Últimos Pedidos de Férias</h3>
+          <ul class="recent-list">
+            <li>Maria Silva — 12-16 Jun 2025 <span class="status pendente">Pendente</span></li>
+            <li>João Costa — 20-27 Jun 2025 <span class="status aprovado">Aprovado</span></li>
+            <li>Ana Lima — 1-5 Jul 2025 <span class="status pendente">Pendente</span></li>
+          </ul>
+        </section>
       </div>
-      
-      <div class="cards-container">
-        <div class="card destaque">
-          <div class="card-title"><i class="fas fa-chart-line"></i> Visão Geral</div>
-          <div class="metric">1,248</div>
-          <div class="metric-desc">Total de funcionários</div>
-          <div class="trend up"><i class="fas fa-arrow-up"></i> 12% em relação ao mês passado</div>
-        </div>
-        
-        <div class="card pequeno">
-          <div class="card-title"><i class="fas fa-calendar-check"></i> Férias</div>
-          <div class="metric">87</div>
-          <div class="metric-desc">Solicitações este mês</div>
-        </div>
-        
-        <div class="card medio">
-          <div class="card-title"><i class="fas fa-user-clock"></i> Pendências</div>
-          <div class="metric">24</div>
-          <div class="metric-desc">Requisições por aprovar</div>
-        </div>
-      </div>
-      
-      <div class="grande-card">
-        <div style="padding: 20px; height: 100%;">
-          <div class="card-title"><i class="fas fa-chart-bar"></i> Relatório Mensal</div>
-          <div style="display: flex; height: 80%; margin-top: 15px;">
-            <div style="flex: 7; background: rgba(255,255,255,0.7); border-radius: 10px; padding: 15px;">
-              <div style="height: 100%; display: flex; flex-direction: column; justify-content: flex-end; gap: 8px;">
-                <div style="display: flex; align-items: flex-end; gap: 15px; height: 100%;">
-                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-                    <div style="background: #dcaa69; height: 20%; width: 70%; border-radius: 5px 5px 0 0;"></div>
-                    <div style="margin-top: 5px; font-size: 13px;">Jan</div>
-                  </div>
-                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-                    <div style="background: #dcaa69; height: 45%; width: 70%; border-radius: 5px 5px 0 0;"></div>
-                    <div style="margin-top: 5px; font-size: 13px;">Fev</div>
-                  </div>
-                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-                    <div style="background: #dcaa69; height: 70%; width: 70%; border-radius: 5px 5px 0 0;"></div>
-                    <div style="margin-top: 5px; font-size: 13px;">Mar</div>
-                  </div>
-                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-                    <div style="background: #dcaa69; height: 85%; width: 70%; border-radius: 5px 5px 0 0;"></div>
-                    <div style="margin-top: 5px; font-size: 13px;">Abr</div>
-                  </div>
-                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-                    <div style="background: #546a7b; height: 65%; width: 70%; border-radius: 5px 5px 0 0;"></div>
-                    <div style="margin-top: 5px; font-size: 13px;">Mai</div>
-                  </div>
-                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-                    <div style="background: #546a7b; height: 92%; width: 70%; border-radius: 5px 5px 0 0;"></div>
-                    <div style="margin-top: 5px; font-size: 13px;">Jun</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div style="flex: 3; margin-left: 15px; display: flex; flex-direction: column; justify-content: space-between;">
-              <div style="background: rgba(255,255,255,0.7); border-radius: 10px; padding: 15px; height: 48%;">
-                <div class="card-title"><i class="fas fa-user-plus"></i> Novos</div>
-                <div class="metric" style="font-size: 24px;">42</div>
-                <div class="metric-desc">Contratações este mês</div>
-              </div>
-              <div style="background: rgba(255,255,255,0.7); border-radius: 10px; padding: 15px; height: 48%;">
-                <div class="card-title"><i class="fas fa-user-minus"></i> Saídas</div>
-                <div class="metric" style="font-size: 24px;">18</div>
-                <div class="metric-desc">Desligamentos este mês</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      <!-- Resumo Mensal (big panel) -->
+      <section class="dashboard-report">
+        <h3>Resumo Mensal</h3>
+        <p>
+          <strong>Contratações:</strong> 3<br>
+          <strong>Saídas:</strong> 1<br>
+          <strong>Total de pedidos de férias:</strong> 14
+        </p>
+        <!-- Chart or visual summary could go here -->
+      </section>
+    </main>
   </div>
 
   <script>
