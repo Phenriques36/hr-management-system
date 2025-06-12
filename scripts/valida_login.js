@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Remove borda vermelha quando o usuário começa a digitar e o campo fica válido
+  // Remove borda vermelha quando o utilizador começa a escrever e o campo fica válido
   emailInput.addEventListener('input', function () {
     if (emailInput.value.trim()) {
       emailInput.style.border = '';
