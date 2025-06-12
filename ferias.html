@@ -7,26 +7,167 @@
   <link rel="stylesheet" href="styles/ferias.css" />
 </head>
 <body>
-  <div class="container">
-    <div class="sidebar">
-      <h3>Menus</h3>
-      <ul class="menu">
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Pedido de férias</a></li>
-        <li><a href="#">Gestão de funcionários</a></li>
-        <li><a href="#">Gestão de permissões</a></li>
-        <li><a href="#">Relatórios</a></li>
+  <div class="ferias-dashboard-layout">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <h2>Menu</h2>
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="ferias.html" class="active">Pedido de férias</a></li>
+        <li><a href="funcionarios.php">Gestão de funcionários</a></li>
+        <li><a href="permissoes.html">Gestão de permissões</a></li>
+        <li><a href="relatorios.html">Relatórios</a></li>
       </ul>
-    </div>
-    <div class="main">
-      <div class="header"></div>
-      <div class="title">
+    </nav>
+    <!-- Main Content -->
+    <main class="ferias-main-content">
+      <header class="ferias-header-bar"></header>
+      <div class="ferias-content">
         <h1>Marcação de férias</h1>
+        <div class="calendar-placeholder" id="calendar-root"></div>
+        <div id="selected-days" style="margin-top:20px;color:#333;font-size:16px;"></div>
       </div>
-      <div class="calendar-placeholder">
-        Calendário
-      </div>
-    </div>
+    </main>
   </div>
+  <script>
+    // Calendar rendering - visually matches the CSS grid but is functional
+    // Portuguese months and days
+    const months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+    const daysShort = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
+    // State
+    let currentMonthOffset = 0;
+    window.selectedDays = [];
+
+    function renderCalendar(monthOffset = 0) {
+      const root = document.getElementById('calendar-root');
+      root.innerHTML = '';
+
+      const today = new Date();
+      let year = today.getFullYear();
+      let month = today.getMonth() + monthOffset;
+
+      // Adjust year if month offset is out of bounds
+      while (month > 11) { month -= 12; year++; }
+      while (month < 0)  { month += 12; year--; }
+
+      const firstDay = new Date(year, month, 1);
+      const lastDay = new Date(year, month + 1, 0);
+      const daysInMonth = lastDay.getDate();
+      const startDayOfWeek = firstDay.getDay();
+
+      // Header (matches the dashboard bar style)
+      const header = document.createElement('div');
+      header.style.display = 'flex';
+      header.style.justifyContent = 'center';
+      header.style.alignItems = 'center';
+      header.style.marginBottom = '6px';
+      header.style.width = '100%';
+
+      const prevBtn = document.createElement('button');
+      prevBtn.textContent = '<';
+      prevBtn.style.background = '#ecebdd';
+      prevBtn.style.border = 'none';
+      prevBtn.style.fontSize = '18px';
+      prevBtn.style.cursor = 'pointer';
+      prevBtn.style.marginRight = '18px';
+      prevBtn.style.borderRadius = '7px';
+      prevBtn.onclick = () => {
+        currentMonthOffset--;
+        renderCalendar(currentMonthOffset);
+      };
+
+      const nextBtn = document.createElement('button');
+      nextBtn.textContent = '>';
+      nextBtn.style.background = '#ecebdd';
+      nextBtn.style.border = 'none';
+      nextBtn.style.fontSize = '18px';
+      nextBtn.style.cursor = 'pointer';
+      nextBtn.style.marginLeft = '18px';
+      nextBtn.style.borderRadius = '7px';
+      nextBtn.onclick = () => {
+        currentMonthOffset++;
+        renderCalendar(currentMonthOffset);
+      };
+
+      const title = document.createElement('span');
+      title.textContent = months[month] + ' ' + year;
+      title.style.fontWeight = 'bold';
+      title.style.fontSize = '20px';
+      title.style.flex = 'none';
+
+      header.appendChild(prevBtn);
+      header.appendChild(title);
+      header.appendChild(nextBtn);
+
+      root.appendChild(header);
+
+      // Day names row
+      const daysRow = document.createElement('div');
+      daysRow.className = 'ferias-calendar-grid days';
+      daysShort.forEach(day => {
+        const cell = document.createElement('div');
+        cell.className = 'ferias-calendar-cell day-label';
+        cell.textContent = day;
+        daysRow.appendChild(cell);
+      });
+      root.appendChild(daysRow);
+
+      // Days grid
+      const grid = document.createElement('div');
+      grid.className = 'ferias-calendar-grid';
+
+      // Fill empty slots before first day
+      for (let i = 0; i < startDayOfWeek; i++) {
+        const emptyCell = document.createElement('div');
+        emptyCell.className = 'ferias-calendar-cell empty';
+        grid.appendChild(emptyCell);
+      }
+
+      // Fill days
+      for (let date = 1; date <= daysInMonth; date++) {
+        const cell = document.createElement('div');
+        cell.className = 'ferias-calendar-cell day';
+        cell.textContent = date;
+        const key = `${year}-${month + 1}-${date}`;
+        if (window.selectedDays.includes(key)) {
+          cell.classList.add('selected');
+        }
+        cell.onclick = function () {
+          const idx = window.selectedDays.indexOf(key);
+          if (idx === -1) {
+            window.selectedDays.push(key);
+          } else {
+            window.selectedDays.splice(idx, 1);
+          }
+          renderCalendar(currentMonthOffset);
+          showSelectedDays();
+        };
+        grid.appendChild(cell);
+      }
+
+      // Fill remaining slots to make full 5 rows of 7 (if needed)
+      let totalCells = startDayOfWeek + daysInMonth;
+      while (totalCells % 7 !== 0) {
+        const emptyCell = document.createElement('div');
+        emptyCell.className = 'ferias-calendar-cell empty';
+        grid.appendChild(emptyCell);
+        totalCells++;
+      }
+
+      root.appendChild(grid);
+    }
+
+    function showSelectedDays() {
+      const sel = document.getElementById('selected-days');
+      if (!window.selectedDays || window.selectedDays.length === 0) {
+        sel.textContent = "Nenhum dia selecionado.";
+      } else {
+        sel.textContent = "Dias marcados para férias: " + window.selectedDays.join(', ');
+      }
+    }
+
+    renderCalendar(0);
+    showSelectedDays();
+  </script>
 </body>
 </html>

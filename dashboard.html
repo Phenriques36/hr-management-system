@@ -3,30 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard</title>
+  <title>Gestão de RH - Dashboard</title>
   <link rel="stylesheet" href="styles/dashboard.css" />
 </head>
 <body>
-  <div class="container">
-    <div class="sidebar">
-      <h3>Menus</h3>
-      <ul class="menu">
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Pedido de férias</a></li>
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <h2>Menu</h2>
+      <ul>
+        <li><a href="dashboard.html" class="active">Dashboard</a></li>
+        <li><a href="ferias.html">Pedido de férias</a></li>
         <li><a href="funcionarios.php">Gestão de funcionários</a></li>
-        <li><a href="#">Gestão de permissões</a></li>
-        <li><a href="#">Relatórios</a></li>
+        <li><a href="permissoes.html">Gestão de permissões</a></li>
+        <li><a href="relatorios.html">Relatórios</a></li>
       </ul>
-    </div>
-    <div class="main">
-      <div class="header"></div>
-      <div class="top-cards">
-        <div class="card destaque"></div>
-        <div class="card pequeno"></div>
-        <div class="card medio"></div>
+    </nav>
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header (top bar) -->
+      <header class="header-bar">
+        <span>Bem-vindo, [Nome do Usuário]</span>
+      </header>
+      <div class="dashboard-widgets">
+        <!-- KPI: Funcionários Ativos -->
+        <section class="kpi-card destaque">
+          <h3>Funcionários Ativos</h3>
+          <div class="kpi-value">120</div>
+        </section>
+        <!-- KPI: Pedidos de Férias Pendentes -->
+        <section class="kpi-card">
+          <h3>Pedidos de Férias Pendentes</h3>
+          <div class="kpi-value">7</div>
+        </section>
+        <!-- Últimos Pedidos de Férias -->
+        <section class="kpi-card wide">
+          <h3>Últimos Pedidos de Férias</h3>
+          <ul class="recent-list">
+            <li>Maria Silva — 12-16 Jun 2025 <span class="status pendente">Pendente</span></li>
+            <li>João Costa — 20-27 Jun 2025 <span class="status aprovado">Aprovado</span></li>
+            <li>Ana Lima — 1-5 Jul 2025 <span class="status pendente">Pendente</span></li>
+          </ul>
+        </section>
       </div>
-      <div class="grande-card"></div>
-    </div>
+      <!-- Resumo Mensal (big panel) -->
+      <section class="dashboard-report">
+        <h3>Resumo Mensal</h3>
+        <p>
+          <strong>Contratações:</strong> 3<br>
+          <strong>Saídas:</strong> 1<br>
+          <strong>Total de pedidos de férias:</strong> 14
+        </p>
+        <!-- Chart or visual summary could go here -->
+      </section>
+    </main>
   </div>
 </body>
 </html>
