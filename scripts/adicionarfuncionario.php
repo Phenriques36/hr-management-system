@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bindValue(':morada', $morada, SQLITE3_TEXT);
         $stmt->execute();
 
-        header('Location: ../funcionarios.html');
+        header('Location: ../funcionarios.php');
         exit;
     } catch (Exception $e) {
         echo "Erro: " . htmlspecialchars($e->getMessage());
