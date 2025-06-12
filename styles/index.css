@@ -5,49 +5,13 @@
 
 body {
   margin: 0;
-  background-color: #808080; /* cinza */
+  background: url('../images/Login_background.png') no-repeat center center fixed;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   position: relative;
-}
-
-/* Formas geométricas */
-.line1, .line2, .diamond, .circle {
-  position: absolute;
-  border: 2px solid #2d2d2d;
-}
-
-.line1 {
-  width: 200%;
-  transform: rotate(45deg);
-  top: -100px;
-  left: -50%;
-}
-
-.line2 {
-  width: 200%;
-  transform: rotate(-45deg);
-  top: -100px;
-  left: -50%;
-}
-
-.diamond {
-  width: 200px;
-  height: 200px;
-  transform: rotate(45deg);
-  border-color: rgba(255,255,255,0.3);
-  top: 40%;
-  left: 20%;
-}
-
-.circle {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  top: 5%;
-  left: 10%;
 }
 
 .login-box {

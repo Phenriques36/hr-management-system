@@ -34,16 +34,15 @@
         <?php include 'scripts/lista_funcionarios.php'; ?>
       </div>
 
-      <!-- Caixa com a descrição e identificação do grupo -->
+    
       <div id="projectInfo" style="display: none;">
         <h3>Descrição do Projeto</h3>
         <p>Este projeto consiste numa aplicação para gestão de funcionários, incluindo funcionalidades de adicionar, listar e editar dados.</p>
         <h4>Elementos do Grupo:</h4>
         <ul>
-          <li>João Silva</li>
-          <li>Maria Fernandes</li>
-          <li>Pedro Costa</li>
-          <!-- Adicione os nomes do seu grupo aqui -->
+          <li>Paulo Henriques</li>
+          <li>Jorge Mêna</li>
+        
         </ul>
       </div>
     </div>
