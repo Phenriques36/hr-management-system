@@ -26,7 +26,7 @@ $nome = htmlspecialchars($_SESSION['user_nome']);
         <li><a href="#" class="active">Dashboard</a></li>
         <li><a href="ferias.html">Pedido de férias</a></li>
         <li><a href="funcionarios.php">Gestão de funcionários</a></li>
-        <li><a href="permissoes.html">Gestão de permissões</a></li>
+        <li><a href="permissoes.php">Gestão de permissões</a></li>
         <li><a href="relatorios.html">Relatórios</a></li>
       </ul>
     </nav>
@@ -53,13 +53,36 @@ $nome = htmlspecialchars($_SESSION['user_nome']);
         </section>
         <section class="kpi-card wide">
           <span class="material-symbols-outlined expand-icon" title="Expandir">open_in_full</span>      
-          <h3>Relatório Resumido</h3>
+          <h3>Pedidos de Férias</h3>
           <ul class="recent-list">
-            <li>João Silva <span class="status pendente">pendente</span></li>
-            <li>Maria Costa <span class="status aprovado">aprovado</span></li>
-            <li>Pedro Santos <span class="status rejeitado">rejeitado</span></li>
-            <li>Ana Lopes <span class="status pendente">pendente</span></li>
-            <li>Carla Moura <span class="status aprovado">aprovado</span></li>
+            <?php
+            $db = new SQLite3('database/dados.db');
+            $results = $db->query(
+              "SELECT p.id, f.nome, p.estado 
+               FROM pedidos_ferias p
+               JOIN funcionarios f ON p.id_funcionario = f.id
+               ORDER BY p.id DESC
+               LIMIT 5"
+            );
+            while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
+              $id = intval($row['id']);
+              $nome = htmlspecialchars($row['nome']);
+              $estado = htmlspecialchars($row['estado']);
+              $classe = '';
+              if ($estado === 'pendente') $classe = 'pendente';
+              elseif ($estado === 'aprovado') $classe = 'aprovado';
+              elseif ($estado === 'rejeitado') $classe = 'rejeitado';
+              echo "<li data-id=\"{$id}\">{$nome} 
+                <span class=\"status {$classe}\">{$estado}</span>
+                <select class=\"estado-select\">
+                  <option value=\"pendente\"".($estado=='pendente'?' selected':'').">pendente</option>
+                  <option value=\"aprovado\"".($estado=='aprovado'?' selected':'').">aprovado</option>
+                  <option value=\"rejeitado\"".($estado=='rejeitado'?' selected':'').">rejeitado</option>
+                </select>
+                <button class=\"btn-estado\">Salvar</button>
+              </li>";
+            }
+            ?>
           </ul>
         </section>
       </div>

@@ -17,7 +17,7 @@
         <li><a href="dashboard.php">Dashboard</a></li>
         <li><a href="ferias.html">Pedido de férias</a></li>
         <li><a href="funcionarios.php" class="active">Gestão de funcionários</a></li>
-        <li><a href="permissoes.html">Gestão de permissões</a></li>
+        <li><a href="permissoes.php">Gestão de permissões</a></li>
         <li><a href="relatorios.html">Relatórios</a></li>
       </ul>
 
