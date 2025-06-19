@@ -13,8 +13,9 @@ $nome = htmlspecialchars($_SESSION['user_nome']);
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gestão de RH - Dashboard</title>
+  <title>Bem-vindo, <?= $nome ?></title>
   <link rel="stylesheet" href="styles/dashboard.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
 <body>
   <div class="dashboard-layout">
@@ -47,15 +48,18 @@ $nome = htmlspecialchars($_SESSION['user_nome']);
 </section>
 
         <section class="kpi-card">
-          <h3>Pedidos de Férias Pendentes</h3>
-          <div class="kpi-value">7</div>
+          <h3>Pedidos Pendentes</h3>
+          <div class="kpi-value">5</div>
         </section>
         <section class="kpi-card wide">
-          <h3>Últimos Pedidos de Férias</h3>
+          <span class="material-symbols-outlined expand-icon" title="Expandir">open_in_full</span>      
+          <h3>Relatório Resumido</h3>
           <ul class="recent-list">
-            <li>Maria Silva — 12-16 Jun 2025 <span class="status pendente">Pendente</span></li>
-            <li>João Costa — 20-27 Jun 2025 <span class="status aprovado">Aprovado</span></li>
-            <li>Ana Lima — 1-5 Jul 2025 <span class="status pendente">Pendente</span></li>
+            <li>João Silva <span class="status pendente">pendente</span></li>
+            <li>Maria Costa <span class="status aprovado">aprovado</span></li>
+            <li>Pedro Santos <span class="status rejeitado">rejeitado</span></li>
+            <li>Ana Lopes <span class="status pendente">pendente</span></li>
+            <li>Carla Moura <span class="status aprovado">aprovado</span></li>
           </ul>
         </section>
       </div>
@@ -72,5 +76,6 @@ $nome = htmlspecialchars($_SESSION['user_nome']);
       </section>
     </main>
   </div>
+  <script src="scripts/dashboard.js"></script>        
 </body>
 </html>

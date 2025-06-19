@@ -21,11 +21,22 @@
     </nav>
     <!-- Main Content -->
     <main class="ferias-main-content">
-      <header class="ferias-header-bar"></header>
+      <header class="ferias-header-bar">Marcação de férias</header>
       <div class="ferias-content">
-        <h1>Marcação de férias</h1>
+
         <div class="calendar-placeholder" id="calendar-root"></div>
-        <div id="selected-days" style="margin-top:20px;color:#333;font-size:16px;"></div>
+        <div id="selected-days" style="margin-top:12px;color:#333;font-size:14px;"></div>
+        <label for="tipo-ferias" style="margin-top:10px;display:block;">Tipo de férias:</label>
+        <select id="tipo-ferias" style="margin-bottom:10px;">
+          <option value="normal">Normal</option>
+          <option value="extra">Extra</option>
+        </select>
+        <label for="funcionario-select" style="margin-top:10px;display:block;">Funcionário:</label>
+        <select id="funcionario-select" style="margin-bottom:10px;">
+          <option value="">A carregar funcionários...</option>
+        </select>
+        <button id="submit-ferias">Enviar pedido de férias</button>
+        <div id="ferias-message"></div>
       </div>
     </main>
   </div>
@@ -166,8 +177,47 @@
       }
     }
 
-    renderCalendar(0);
-    showSelectedDays();
+    function getDateRange(dates) {
+      if (!dates.length) return {inicio: null, fim: null};
+      // Sort dates
+      const sorted = dates.slice().sort();
+      return {inicio: sorted[0], fim: sorted[sorted.length - 1]};
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      renderCalendar(0);
+      showSelectedDays();
+
+      document.getElementById('submit-ferias').onclick = function() {
+        if (!window.selectedDays || window.selectedDays.length === 0) {
+          document.getElementById('ferias-message').textContent = "Selecione pelo menos um dia para marcar férias.";
+          return;
+        }
+        const tipo = document.getElementById('tipo-ferias').value;
+        const funcionario_id = document.getElementById('funcionario-select').value;
+        const {inicio, fim} = getDateRange(window.selectedDays);
+        fetch('scripts/adicionar_pedido_ferias.php', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ id_funcionario: funcionario_id, data_inicio: inicio, data_fim: fim, tipo })
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            document.getElementById('ferias-message').textContent = "Pedido de férias enviado com sucesso!";
+            window.selectedDays = [];
+            renderCalendar(currentMonthOffset);
+            showSelectedDays();
+          } else {
+            document.getElementById('ferias-message').textContent = "Erro ao enviar pedido: " + (data.error || "Tente novamente.");
+          }
+        })
+        .catch(() => {
+          document.getElementById('ferias-message').textContent = "Erro de comunicação com o servidor.";
+        });
+      };
+    });
   </script>
+  <script src="scripts/funcionariosDropdown.js"></script>
 </body>
 </html>

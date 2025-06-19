@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmtUpdate->execute();
 
             
-            header('Location: ../dashboard.html');
+            header('Location: ../dashboard.php');
             exit;
         } else {
             echo "Password incorreta.";
