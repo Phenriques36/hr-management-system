@@ -247,3 +247,31 @@ body {
     padding: 22px 10px 22px 10px;
   }
 }
+
+  .sidebar button#toggleInfoBtn {
+  background: none;
+  border: none;
+  color: #fdfaed;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: background 0.2s;
+  display: block;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+}
+
+.sidebar button#toggleInfoBtn:hover,
+.sidebar button#toggleInfoBtn.active {
+  background: #5d7481;
+}
+
+#projectInfo {
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  border-radius: 8px;
+}

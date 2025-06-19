@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const emailInput = form.querySelector('input[name="email"]');
   const passwordInput = form.querySelector('input[name="password"]');
 
-  // Função para validar campos e ajustar borda
+
   function validarCampos() {
     let valid = true;
 

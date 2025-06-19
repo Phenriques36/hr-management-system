@@ -28,7 +28,9 @@ $nome = htmlspecialchars($_SESSION['user_nome']);
         <li><a href="funcionarios.php">Gestão de funcionários</a></li>
         <li><a href="permissoes.html">Gestão de permissões</a></li>
         <li><a href="relatorios.html">Relatórios</a></li>
+        
       </ul>
+      <button id="toggleInfoBtn">Mostrar Info do Projeto</button>
     </nav>
 
     <!-- Main Content -->
@@ -74,8 +76,18 @@ $nome = htmlspecialchars($_SESSION['user_nome']);
         </p>
         <!-- You can insert a chart or visual summary here -->
       </section>
+      <div id="projectInfo" style="display: none;">
+  <h3>Descrição do Projeto</h3>
+  <p>Este projeto consiste numa aplicação para gestão de funcionários, incluindo funcionalidades de adicionar, listar e editar dados.</p>
+  <h4>Elementos do Grupo:</h4>
+  <ul>
+    <li>Paulo Henriques</li>
+    <li>Jorge Mêna</li>
+  </ul>
+</div>
     </main>
   </div>
-  <script src="scripts/dashboard.js"></script>        
+  <script src="scripts/dashboard.js"></script>  
+          <script src="scripts/infoprojeto.js"></script>
 </body>
 </html>
