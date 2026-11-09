@@ -4,11 +4,11 @@ A lightweight workforce and leave management web application built with vanilla 
 
 ---
 
-## Architecture & Features
+## Key Features
 
-- **Employee Directory:** Full CRUD operations for company personnel records.
 - **Role-Based Access Control (RBAC):** Distinct permission tiers for system administrators, HR managers, and employees.
-- **Leave Request Management:** JSON-based API workflow for requesting, tracking, and approving employee vacations.
+- **Employee Directory:** Full CRUD operations for company personnel records.
+- **Leave Request Management:** JSON-based API workflow for requesting, tracking, and approving employee vacation leaves.
 - **Audit Tracking:** Session-based authentication logging user access timestamps.
 
 ---
@@ -26,4 +26,4 @@ A lightweight workforce and leave management web application built with vanilla 
 
 1. Initialize the SQLite database schema:
    ```bash
-   sqlite3 database/dados.db < database/schema.sql
+   sqlite3 database/dados.db < database/dados.sql
