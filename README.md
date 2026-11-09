@@ -1,36 +1,29 @@
-# TrabalhoGrupoDEAPC – Gestão de Recursos Humanos
+# Human Resources Management System (HRMS)
 
-## Objetivos do Projeto
+A lightweight workforce and leave management web application built with vanilla PHP, SQLite, and JavaScript.
 
-Desenvolver uma aplicação web que permita:
+---
 
-- Gerir os dados dos colaboradores da empresa (registo, edição e consulta)
-- Processar e acompanhar pedidos de férias e ausências
-- Armazenar e consultar o histórico profissional dos funcionários
-- Acompanhar o estado de pedidos administrativos (férias, atualizações de dados, entre outros)
+## Architecture & Features
 
-## Tipos de Utilizadores
+- **Employee Directory:** Full CRUD operations for company personnel records.
+- **Role-Based Access Control (RBAC):** Distinct permission tiers for system administrators, HR managers, and employees.
+- **Leave Request Management:** JSON-based API workflow for requesting, tracking, and approving employee vacations.
+- **Audit Tracking:** Session-based authentication logging user access timestamps.
 
-- *Administrador*
-- *Funcionário (Recursos Humanos)*
-- *Colaborador (Funcionário geral)*
+---
 
-## Funcionalidades por Utilizador
+## Tech Stack
 
-### Administrador
+- **Backend:** PHP (PDO / SQLite3)
+- **Database:** SQLite
+- **Frontend:** Vanilla JavaScript (ES6+), HTML5, CSS3, Google Material Symbols
+- **Environment:** Apache / XAMPP / Native PHP CLI Server
 
-- Criar, modificar e eliminar registos de funcionários
-- Atribuir e gerir permissões dos utilizadores
-- Visualizar estatísticas e relatórios da equipa
+---
 
-### Funcionário (Recursos Humanos)
+## Database Setup
 
-- Consultar e atualizar perfis de colaboradores
-- Processar pedidos de férias e ausências
-- Emitir relatórios de presença, férias e desempenho
-
-### Colaborador
-
-- Consultar e atualizar os seus próprios dados pessoais
-- Submeter pedidos de férias ou justificação de ausências
-- Acompanhar o estado dos seus pedidos
+1. Initialize the SQLite database schema:
+   ```bash
+   sqlite3 database/dados.db < database/schema.sql
